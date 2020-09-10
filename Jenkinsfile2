@@ -1,15 +1,18 @@
 pipeline {
-    agent any
+    agent any {
+        dockerfile true
+    }
+
     stages {
-        stage('Example') {
+        stage('Alpine Build') {
             steps {
-                echo 'Hello World'
+                echo 'Alpine Build successfully'
             }
         }
     }
     post { 
         always { 
-            echo 'I will always say Hello again!'
+            echo 'Will install jdk here!'
         }
     }
 }
